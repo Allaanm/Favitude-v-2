@@ -1,14 +1,14 @@
 {
-  "builds": [
-    {
-      "src": "Backend/FaviconGen/wsgi.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "Backend/FaviconGen/wsgi.py"
-    }
-  ]
+    "builds": [
+        {
+            "src": "Backend/FaviconGen/FaviconGen/wsgi.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "Backend/FaviconGen/FaviconGen/wsgi.py"
+        }
+    ]
 }
