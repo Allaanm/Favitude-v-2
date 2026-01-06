@@ -106,16 +106,31 @@
             <h4>Generate Favicon</h4>
             <div class="buttons">
                 <div class="first_pair">
-                    <a href="{% url 'Hill:gen_from_text_page' %}" id="button3">Convert Texts</a>
-                    <p id="button_text1">Generate favicons from texts</p>
-                    <a href="" id="button4">Download</a>
-                    <p id="button_text2">Download/save your generated favicon</p>
+                    <a href="{% url 'Hill:gen_from_text_page' %}" class="tool-btn primary">
+                        <span>Convert Texts</span>
+                        <img src="{% static 'images/images-home/convert.png' %}" alt="Convert">
+                    </a>
+                    <p class="description-text">Generate favicons from texts</p>
+
+                    <a href="" class="tool-btn primary">
+                        <span>Download</span>
+                        <img src="{% static 'images/images-home/download.png' %}" alt="Download">
+                    </a>
+                    <p class="description-text">Download/save your generated favicon</p>
                 </div>
+
                 <div class="second_pair">
-                    <a href="{% url 'Hill:imageGen_page' %}" id="button5">Upload Image</a>
-                    <p id="button_text3">Generate HTML/CSS link of your favicon</p>
-                    <a href="" id="button6">Generate Link</a>
-                    <p id="button_text4">Generate HTML/CSS link of your favicon</p>
+                    <a href="{% url 'Hill:imageGen_page' %}" class="tool-btn secondary">
+                        <span>Upload Image</span>
+                        <img src="{% static 'images/images-home/upload.png' %}" alt="Upload">
+                    </a>
+                    <p class="description-text">Generate HTML/CSS link of your favicon</p>
+
+                    <a href="" class="tool-btn secondary">
+                        <span>Generate Link</span>
+                        <img src="{% static 'images/images-home/link.png' %}" alt="Link">
+                    </a>
+                    <p class="description-text">Generate HTML/CSS link of your favicon</p>
                 </div>
             </div>
 
