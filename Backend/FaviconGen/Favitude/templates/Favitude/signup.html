@@ -1,20 +1,14 @@
+{% extends 'Favitude/base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}Sign Up - Favitude{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Favitude</title>
-    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-</head>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
 
-<body>
+{% block content %}
+<div class="signup-page-wrapper">
     <div class="content">
         <div class="signup_options">
             <h5>Sign up with</h5>
@@ -68,60 +62,61 @@
 
         <p class="undertext">Have an account? <a href="{% url 'Hill:login_page' %}" class="login">Log in</a></p>
     </div>
+</div>
+{% endblock %}
 
-    <script>
-        const fname = document.getElementById("fname");
-        const femail = document.getElementById("femail");
-        const pass = document.getElementById("pass");
-        const btnSubmit = document.getElementById("btnSubmit");
-        const errName = document.getElementById("errname");
-        const errEmail = document.getElementById("erremail");
-        const errPass = document.getElementById("errpass");
+{% block extra_js %}
+<script>
+    const fname = document.getElementById("fname");
+    const femail = document.getElementById("femail");
+    const pass = document.getElementById("pass");
+    const btnSubmit = document.getElementById("btnSubmit");
+    const errName = document.getElementById("errname");
+    const errEmail = document.getElementById("erremail");
+    const errPass = document.getElementById("errpass");
 
-        function check() {
-            let valid = true;
+    function check() {
+        let valid = true;
 
-            // Name validation
-            if (!fname.checkValidity()) {
-                valid = false;
-                fname.classList.add("err");
-                errName.innerText = "Please use only letters";
-            } else {
-                fname.classList.remove("err");
-                errName.innerText = "";
-            }
-
-            // Email validation
-            if (!femail.checkValidity()) {
-                valid = false;
-                femail.classList.add("err");
-                errEmail.innerText = "Please use a valid email address";
-            } else {
-                femail.classList.remove("err");
-                errEmail.innerText = "";
-            }
-
-            // Password validation
-            if (!pass.checkValidity()) {
-                valid = false;
-                pass.classList.add("err");
-                errPass.innerText = "Password must be at least 8 characters";
-            } else {
-                pass.classList.remove("err");
-                errPass.innerText = "";
-            }
-
-            return valid;
+        // Name validation
+        if (!fname.checkValidity()) {
+            valid = false;
+            fname.classList.add("err");
+            errName.innerText = "Please use only letters";
+        } else {
+            fname.classList.remove("err");
+            errName.innerText = "";
         }
 
-        function manageBtn() {
-            if (fname.value.trim() !== '' && femail.value.trim() !== '' && pass.value.trim() !== '') {
-                btnSubmit.disabled = false;
-            } else {
-                btnSubmit.disabled = true;
-            }
+        // Email validation
+        if (!femail.checkValidity()) {
+            valid = false;
+            femail.classList.add("err");
+            errEmail.innerText = "Please use a valid email address";
+        } else {
+            femail.classList.remove("err");
+            errEmail.innerText = "";
         }
-    </script>
-</body>
 
-</html>
+        // Password validation
+        if (!pass.checkValidity()) {
+            valid = false;
+            pass.classList.add("err");
+            errPass.innerText = "Password must be at least 8 characters";
+        } else {
+            pass.classList.remove("err");
+            errPass.innerText = "";
+        }
+
+        return valid;
+    }
+
+    function manageBtn() {
+        if (fname.value.trim() !== '' && femail.value.trim() !== '' && pass.value.trim() !== '') {
+            btnSubmit.disabled = false;
+        } else {
+            btnSubmit.disabled = true;
+        }
+    }
+</script>
+{% endblock %}

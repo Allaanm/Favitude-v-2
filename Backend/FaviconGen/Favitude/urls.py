@@ -4,9 +4,10 @@ from . import views
 app_name = "Favitude"
 
 urlpatterns = [
-  path("", views.home, name="home_page"),
+  path("", views.home, name="landing_page"),
   path("about/", views.about, name="about_page"),
   path("login/", views.login_page, name="login_page"),
+  path("logout/", views.logout_view, name="logout"),
   path("home/", views.home_page, name="home_page"),
   path("signup/", views.signup_page, name="signup_page"),
   path("contact/", views.contact_page, name="contact_page"),
@@ -18,5 +19,6 @@ urlpatterns = [
   path("gen_from_text/", views.gen_from_text_page, name="gen_from_text_page"),
   path("privacy/", views.privacy_page, name="privacy_page"),
   path("FAQs/", views.FAQs_page, name="FAQs_page"),
+  path("download/collection/<str:filename>/", views.download_favicon, name="download_favicon"),
   
 ]

@@ -10,7 +10,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>{% block title %}Favitude{% endblock %}</title>
-    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/favicon_icon.png' %}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,8 @@
     <div id="header">
         <div id="navbar">
             <div class="navbar_logo">
-                <a href="{% url 'Hill:home_page' %}">
+                <a
+                    href="{% if user.is_authenticated %}{% url 'Hill:home_page' %}{% else %}{% url 'Hill:landing_page' %}{% endif %}">
                     <img src="{% static 'images/logo.png' %}" alt="Favitude Logo">
                 </a>
             </div>
@@ -54,8 +55,13 @@
 
             <div class="navbar2">
                 <ul class="nav">
+                    {% if user.is_authenticated %}
+                    <li><span style="color: white; margin-right: 10px;">Hi, {{ user.username }}</span></li>
+                    <li><a class="login_button" href="{% url 'Hill:logout' %}">Logout</a></li>
+                    {% else %}
                     <li><a class="login_button" href="{% url 'Hill:login_page' %}">Login</a></li>
                     <li><a class="register_button" href="{% url 'Hill:signup_page' %}">Register</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

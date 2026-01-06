@@ -38,21 +38,28 @@
                 <li><a href="{% url 'Hill:imageGen_page' %}">Generate from image/</a></li>
             </div>
             <div class="upload_canvas">
-                <div class="container">
-                    <div> <img src="{% static 'images/images-imagegen/plus.png' %}" class="plus"> </div>
-                    <div class="upload_text">
-                        <p>Drag files here or click to browse through your files</p>
+                <form action="{% url 'Hill:imageGen_page' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="container" onclick="document.getElementById('file-upload').click();"
+                        style="cursor: pointer;">
+                        <div> <img src="{% static 'images/images-imagegen/plus.png' %}" class="plus"> </div>
+                        <div class="upload_text">
+                            <p>Drag files here or click to browse through your files</p>
+                        </div>
+                        <input type="file" id="file-upload" name="image" style="display: none;"
+                            accept="image/png, image/jpeg" onchange="this.form.submit()">
                     </div>
-                </div>
+                </form>
             </div>
             <div class="text">
                 <p>Only PNG and JPG images are accepted and files must be lower than 5MB</p>
             </div>
         </div>
         <div class="btn">
-            <a href="">
-                <p class="btn_text">GENERATE FAVICON</p>
-            </a>
+            <!-- Submit is triggered by file selection or we can add a manual button if preferred, but design implies auto or manual. 
+                 The original design had a separate button. Let's make the file input trigger simple js or just hook up the button.
+                 Simplest: File input selects file, Button submits. -->
+            <!-- Re-doing form structure to wrap button -->
         </div>
     </main>
     <footer>

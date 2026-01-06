@@ -83,33 +83,51 @@
         </div>
     </div>
 
-    <div class="gallery_container">
+    <div class="gallery_container" id="gallery">
         <h4>Favicon Collections</h4>
         <div class="gallery_grid"
             style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 30px;">
             <div class="gallery_item">
-                <img src="{% static 'images/images-home/Frame1.png' %}" alt="Favicon 1"
-                    style="width: 100px; height: 100px; object-fit: contain;">
+                <a
+                    href="{% if user.is_authenticated %}{% url 'Hill:download_favicon' filename='Frame1.png' %}{% else %}{% url 'Hill:login_page' %}{% endif %}">
+                    <img src="{% static 'images/images-home/Frame1.png' %}" alt="Favicon 1"
+                        style="width: 100px; height: 100px; object-fit: contain; cursor: pointer;">
+                </a>
             </div>
             <div class="gallery_item">
-                <img src="{% static 'images/images-home/Frame2.png' %}" alt="Favicon 2"
-                    style="width: 100px; height: 100px; object-fit: contain;">
+                <a
+                    href="{% if user.is_authenticated %}{% url 'Hill:download_favicon' filename='Frame2.png' %}{% else %}{% url 'Hill:login_page' %}{% endif %}">
+                    <img src="{% static 'images/images-home/Frame2.png' %}" alt="Favicon 2"
+                        style="width: 100px; height: 100px; object-fit: contain;">
+                </a>
             </div>
             <div class="gallery_item">
-                <img src="{% static 'images/images-home/Frame3.png' %}" alt="Favicon 3"
-                    style="width: 100px; height: 100px; object-fit: contain;">
+                <a
+                    href="{% if user.is_authenticated %}{% url 'Hill:download_favicon' filename='Frame3.png' %}{% else %}{% url 'Hill:login_page' %}{% endif %}">
+                    <img src="{% static 'images/images-home/Frame3.png' %}" alt="Favicon 3"
+                        style="width: 100px; height: 100px; object-fit: contain;">
+                </a>
             </div>
             <div class="gallery_item">
-                <img src="{% static 'images/images-home/Frame5.png' %}" alt="Favicon 5"
-                    style="width: 100px; height: 100px; object-fit: contain;">
+                <a
+                    href="{% if user.is_authenticated %}{% url 'Hill:download_favicon' filename='Frame5.png' %}{% else %}{% url 'Hill:login_page' %}{% endif %}">
+                    <img src="{% static 'images/images-home/Frame5.png' %}" alt="Favicon 5"
+                        style="width: 100px; height: 100px; object-fit: contain;">
+                </a>
             </div>
             <div class="gallery_item">
-                <img src="{% static 'images/images-home/check.png' %}" alt="Favicon Check"
-                    style="width: 100px; height: 100px; object-fit: contain;">
+                <a
+                    href="{% if user.is_authenticated %}{% url 'Hill:download_favicon' filename='check.png' %}{% else %}{% url 'Hill:login_page' %}{% endif %}">
+                    <img src="{% static 'images/images-home/check.png' %}" alt="Favicon Check"
+                        style="width: 100px; height: 100px; object-fit: contain;">
+                </a>
             </div>
             <div class="gallery_item">
-                <img src="{% static 'images/images-home/convert.png' %}" alt="Favicon Convert"
-                    style="width: 100px; height: 100px; object-fit: contain;">
+                <a
+                    href="{% if user.is_authenticated %}{% url 'Hill:download_favicon' filename='convert.png' %}{% else %}{% url 'Hill:login_page' %}{% endif %}">
+                    <img src="{% static 'images/images-home/convert.png' %}" alt="Favicon Convert"
+                        style="width: 100px; height: 100px; object-fit: contain;">
+                </a>
             </div>
         </div>
     </div>

@@ -1,20 +1,14 @@
+{% extends 'Favitude/base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}Login - Favitude{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Favitude</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-</head>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 
-<body id="body">
+{% block content %}
+<div class="login-page-wrapper">
     <div id="div1">
         <p id="p1">Sign in with</p>
         <div id="div1a">
@@ -71,48 +65,49 @@
 
         <p id="p3">Not registered yet? <a href="{% url 'Hill:signup_page' %}" id="create">Create an account</a></p>
     </div>
+</div>
+{% endblock %}
 
-    <script>
-        const fmail = document.getElementById("fmail");
-        const pass = document.getElementById("pass");
-        const btnSubmit = document.getElementById("btnSubmit");
-        const errorEmail = document.getElementById("erroremail");
-        const errorPass = document.getElementById("errorpass");
+{% block extra_js %}
+<script>
+    const fmail = document.getElementById("fmail");
+    const pass = document.getElementById("pass");
+    const btnSubmit = document.getElementById("btnSubmit");
+    const errorEmail = document.getElementById("erroremail");
+    const errorPass = document.getElementById("errorpass");
 
-        function check() {
-            let valid = true;
+    function check() {
+        let valid = true;
 
-            // Email validation (Basic HTML5 validity check)
-            if (!fmail.checkValidity()) {
-                valid = false;
-                fmail.classList.add("err");
-                errorEmail.innerText = "Please use a valid email address";
-            } else {
-                fmail.classList.remove("err");
-                errorEmail.innerText = "";
-            }
-
-            // Password validation
-            if (!pass.checkValidity()) {
-                valid = false;
-                pass.classList.add("err");
-                errorPass.innerText = "Password must be at least 8 characters";
-            } else {
-                pass.classList.remove("err");
-                errorPass.innerText = "";
-            }
-
-            return valid;
+        // Email validation (Basic HTML5 validity check)
+        if (!fmail.checkValidity()) {
+            valid = false;
+            fmail.classList.add("err");
+            errorEmail.innerText = "Please use a valid email address";
+        } else {
+            fmail.classList.remove("err");
+            errorEmail.innerText = "";
         }
 
-        function manageBtn() {
-            if (fmail.value.trim() !== '' && pass.value.trim() !== '') {
-                btnSubmit.disabled = false;
-            } else {
-                btnSubmit.disabled = true;
-            }
+        // Password validation
+        if (!pass.checkValidity()) {
+            valid = false;
+            pass.classList.add("err");
+            errorPass.innerText = "Password must be at least 8 characters";
+        } else {
+            pass.classList.remove("err");
+            errorPass.innerText = "";
         }
-    </script>
-</body>
 
-</html>
+        return valid;
+    }
+
+    function manageBtn() {
+        if (fmail.value.trim() !== '' && pass.value.trim() !== '') {
+            btnSubmit.disabled = false;
+        } else {
+            btnSubmit.disabled = true;
+        }
+    }
+</script>
+{% endblock %}
