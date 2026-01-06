@@ -1,180 +1,91 @@
+{% extends 'Favitude/base.html' %}
 {% load static %}
 
+{% block title %}Favitude - Home{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>Favitude</title>
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <script>
-        // Force unregister any service workers from previous projects
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistrations().then(function (registrations) {
-                for (let registration of registrations) {
-                    registration.unregister();
-                }
-            });
-        }
-    </script>
-</head>
-
-<body>
-    <div id="header">
-        <div id="navbar">
-            <div class="navbar_logo">
-                <img src="{% static 'images/images-home/original_logo.png' %}" alt="logo">
-            </div>
-            <div class="navbar1">
-                <ul>
-                    <li><a href="{% url 'Hill:generate_page' %}">Generate</a></li>
-                    <li><a href="{% url 'Hill:documentation_page' %}">Documentation</a></li>
-                    <li><a href="{% url 'Hill:tutorial_page' %}">Tutorials</a></li>
-                    <li><a href="{% url 'Hill:about_page' %}">About</a></li>
-                </ul>
-            </div>
-
-            <div class="navbar2">
-                <ul class="nav">
-                    <li><a class="login_button" href="{% url 'Hill:login_page' %}">Login</a></li>
-                    <li><a class="register_button" href="{% url 'Hill:signup_page' %}">Register</a></li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-    <div class="content">
-        <div class="first">
-            <div class="text1">
-                <h2>Generate your favicons in Three Easy steps</h2>
-                <h4>All the tools you need, to create custom professional favicons, in one place</h4>
-            </div>
-
+{% block content %}
+<div class="content">
+    <div class="first">
+        <div class="text1">
+            <h2>Generate your favicons in Three Easy steps</h2>
+            <h4>All the tools you need, to create custom professional favicons, in one place</h4>
             <div class="getting_started">
                 <a id="button1" href="{% url 'Hill:generate_page' %}">Get Started</a>
             </div>
-
-
-
-
-
         </div>
+    </div>
 
-        <div class="second">
-            <div class="text2">
-                <h3>Favitude</h3>
-                <h4>Convert any of your elements to your preferred favicon format</h4>
-                <p id="check"><img src="{% static 'images/images-home/check.png' %}" alt="">Download your Favicon in Zip
-                    format</p>
-                <p id="check"><img src="{% static 'images/images-home/check.png' %}" alt="">Import your preferred image
-                    for use</p>
-                <p id="check"><img src="{% static 'images/images-home/check.png' %}" alt="">One Favicon in Different
-                    resolutions </p>
-                <a href="{% url 'Hill:tutorial_page' %}" id="button2">Learn More</a>
-
-            </div>
-            <div class="image2">
-                <img src="{% static 'images/images-home/drawing_icons.png' %}" alt="drawing icons">
-            </div>
+    <div class="second">
+        <div class="text2">
+            <h3>Favitude</h3>
+            <h4>Convert any of your elements to your preferred favicon format</h4>
+            <p><img src="{% static 'images/images-home/check.png' %}" alt="Check">Download your Favicon in Zip format
+            </p>
+            <p><img src="{% static 'images/images-home/check.png' %}" alt="Check">Import your preferred image for use
+            </p>
+            <p><img src="{% static 'images/images-home/check.png' %}" alt="Check">One Favicon in Different resolutions
+            </p>
+            <a href="{% url 'Hill:tutorial_page' %}" id="button2">Learn More</a>
         </div>
+        <div class="image2">
+            <img src="{% static 'images/images-home/drawing_icons.png' %}" alt="drawing icons">
+        </div>
+    </div>
 
-        <div class="third">
-            <div class="third_top">
-                <div class="image3">
-                    <img src="{% static 'images/images-home/designing3.png' %}" alt="drawing icons">
-                </div>
-                <div class="text3">
-                    <h4>What is a Favicon?</h4>
-                    <p>Favicons are the small square images that are usually displayed before the URL in the address bar
-                        of a browser, in the browsing tabs, and next to the site name in a users list of bookmarks.</p>
-                </div>
+    <div class="third">
+        <div class="third_top">
+            <div class="image3">
+                <img src="{% static 'images/images-home/designing3.png' %}" alt="drawing icons">
             </div>
-            <div class="third_bottom">
-                <h4>Want to know more about Favicons? <a href="{% url 'Hill:tutorial_page' %}" class="click_here">Click
-                        here</a></h4>
+            <div class="text3">
+                <h4>What is a Favicon?</h4>
+                <p>Favicons are the small square images that are usually displayed before the URL in the address bar of
+                    a browser, in the browsing tabs, and next to the site name in a users list of bookmarks.</p>
             </div>
         </div>
-        <hr>
-
-        <div class="fourth">
-            <h4>Generate Favicon</h4>
-            <div class="buttons">
-                <div class="first_pair">
-                    <a href="{% url 'Hill:gen_from_text_page' %}" class="tool-btn primary">
-                        <span>Convert Texts</span>
-                        <img src="{% static 'images/images-home/convert.png' %}" alt="Convert">
-                    </a>
-                    <p class="description-text">Generate favicons from texts</p>
-
-                    <a href="" class="tool-btn primary">
-                        <span>Download</span>
-                        <img src="{% static 'images/images-home/download.png' %}" alt="Download">
-                    </a>
-                    <p class="description-text">Download/save your generated favicon</p>
-                </div>
-
-                <div class="second_pair">
-                    <a href="{% url 'Hill:imageGen_page' %}" class="tool-btn secondary">
-                        <span>Upload Image</span>
-                        <img src="{% static 'images/images-home/upload.png' %}" alt="Upload">
-                    </a>
-                    <p class="description-text">Generate HTML/CSS link of your favicon</p>
-
-                    <a href="" class="tool-btn secondary">
-                        <span>Generate Link</span>
-                        <img src="{% static 'images/images-home/link.png' %}" alt="Link">
-                    </a>
-                    <p class="description-text">Generate HTML/CSS link of your favicon</p>
-                </div>
-            </div>
-
-
+        <div class="third_bottom">
+            <h4>Want to know more about Favicons? <a href="{% url 'Hill:tutorial_page' %}" class="click_here">Click
+                    here</a></h4>
         </div>
+    </div>
+    <hr>
 
-        <div class="gallery_container">
-            <h4>Favicon Collections</h4>
-            <!-- <div class="slides">
-              <div><img src="{% static 'images/images-home/Frame1.png' %}"></div>
-              <div><img src="{% static 'images/images-home/Frame2.png' %}"></div>
-              <div><img src="{% static 'images/images-home/Frame3.png' %}"></div>
-              <div><img src="{% static 'images/images-home/Frame5.png' %}"></div>
-          </div> -->
+    <div class="fourth">
+        <h4>Generate Favicon</h4>
+        <div class="buttons">
+            <div class="first_pair">
+                <a href="{% url 'Hill:gen_from_text_page' %}" class="tool-btn primary">
+                    <span>Convert Texts</span>
+                    <img src="{% static 'images/images-home/convert.png' %}" alt="Convert">
+                </a>
+                <p class="description-text">Generate favicons from texts</p>
+
+                <a href="" class="tool-btn primary">
+                    <span>Download</span>
+                    <img src="{% static 'images/images-home/download.png' %}" alt="Download">
+                </a>
+                <p class="description-text">Download/save your generated favicon</p>
+            </div>
+
+            <div class="second_pair">
+                <a href="{% url 'Hill:imageGen_page' %}" class="tool-btn secondary">
+                    <span>Upload Image</span>
+                    <img src="{% static 'images/images-home/upload.png' %}" alt="Upload">
+                </a>
+                <p class="description-text">Generate HTML/CSS link of your favicon</p>
+
+                <a href="" class="tool-btn secondary">
+                    <span>Generate Link</span>
+                    <img src="{% static 'images/images-home/link.png' %}" alt="Link">
+                </a>
+                <p class="description-text">Generate HTML/CSS link of your favicon</p>
+            </div>
         </div>
+    </div>
 
-        <footer>
-            <div class="footer_content">
-                <div class="first_footer_content">
-                    <img src="{% static 'images/images-home/Footer_logo.png' %}" alt="logo">
-                    <p>© 2026 All Rights Reserved</p>
-                </div>
-                <div class="second_footer_content">
-                    <a href="#" id="standout_text">COMPANY</a>
-                    <a href="{% url 'Hill:about_page' %}">About us</a>
-                    <a href="{% url 'Hill:privacy_page' %}">Privacy Policy</a>
-                    <a href="#">Work with us</a>
-                    <a href="#">Terms & Conditions</a>
-                </div>
-                <div class="third_footer_content">
-                    <a href="#" id="standout_text">SUPPORT</a>
-                    <a href="{% url 'Hill:contact_page' %}">Contact us</a>
-                    <a href="#">FAQs</a>
-                    <a href="{% url 'Hill:tutorial_page' %}">Tutorials</a>
-                    <a href="{% url 'Hill:documentation_page' %}">Documantation</a>
-                </div>
-            </div>
-
-            <div class="arrow_up">
-                <img src="{% static 'images/images-home/arrow-up.png' %}" alt="Back to the top">
-            </div>
-        </footer>
-
-
-</body>
-
-</html>
+    <div class="gallery_container">
+        <h4>Favicon Collections</h4>
+        <!-- Gallery slides commented out in original -->
+    </div>
+</div>
+{% endblock %}
