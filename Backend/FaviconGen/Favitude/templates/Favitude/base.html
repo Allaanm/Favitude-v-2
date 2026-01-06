@@ -10,6 +10,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>{% block title %}Favitude{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +39,7 @@
         <div id="navbar">
             <div class="navbar_logo">
                 <a href="{% url 'Hill:home_page' %}">
-                    <img src="{% static 'images/images-home/original_logo.png' %}" alt="Favitude Logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Favitude Logo">
                 </a>
             </div>
             <div class="navbar1">
