@@ -75,8 +75,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'FaviconGen.wsgi.application'
 
 # DATABASE CONFIGURATION
-# Use PostgreSQL if environment variables are set, otherwise fallback to SQLite
-if os.environ.get("POSTGRES_DB"):
+# DATABASE CONFIGURATION
+# Vercel Postgres (Production)
+import dj_database_url
+
+if 'POSTGRES_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ['POSTGRES_URL'],
+            conn_max_age=600
+        )
+    }
+# Manual Postgres Config (Alternative)
+elif os.environ.get("POSTGRES_DB"):
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
@@ -87,6 +98,7 @@ if os.environ.get("POSTGRES_DB"):
             "PORT": os.environ.get("POSTGRES_PORT", "5432"),
         }
     }
+# Local SQLite (Development)
 else:
     DATABASES = {
         'default': {
