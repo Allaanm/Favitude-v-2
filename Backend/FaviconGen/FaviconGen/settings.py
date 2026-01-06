@@ -121,9 +121,22 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Required by WhiteNoise
 
+# WhiteNoise Configuration
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+WHITENOISE_USE_FINDERS = True
+
 # Optional: if you have additional static dirs
 STATICFILES_DIRS = [
     BASE_DIR / 'Favitude' / 'static',
 ]
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
