@@ -26,11 +26,21 @@ body {
 
 /* Navbar */
 #header {
-  background-color: var(--primary-color);
-  box-shadow: var(--shadow-light);
+  background: rgba(14, 91, 135, 0.85);
+  /* Semi-transparent primary color */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+#header.scrolled {
+  background: rgba(14, 91, 135, 0.95);
+  /* Primary color with opacity */
 }
 
 #navbar {
@@ -45,64 +55,99 @@ body {
 }
 
 .navbar_logo img {
-  height: 40px;
+  height: 48px;
+  /* Slightly larger logo */
   width: auto;
   display: block;
+  transition: transform 0.3s;
+}
+
+.navbar_logo img:hover {
+  transform: scale(1.05);
 }
 
 .navbar1 ul {
   display: flex;
-  gap: 30px;
+  gap: 40px;
+  list-style: none;
+  /* Removes dots */
+  margin: 0;
+  padding: 0;
 }
 
 .navbar1 a {
   color: var(--text-light);
+  /* Assuming white text on dark header */
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
+  position: relative;
   transition: color var(--transition-speed);
+  padding: 5px 0;
+}
+
+.navbar1 a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
 }
 
 .navbar1 a:hover {
   color: var(--secondary-color);
 }
 
+.navbar1 a:hover::after {
+  width: 100%;
+}
+
 .navbar2 ul {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
+  list-style: none;
+  /* Removes dots */
+  margin: 0;
+  padding: 0;
 }
 
 .navbar2 a {
   padding: 10px 24px;
-  border-radius: 6px;
+  border-radius: 50px;
+  /* More modern rounded buttons */
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   transition: all var(--transition-speed);
 }
 
 .login_button {
   background: transparent;
-  border: 1px solid var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   color: var(--text-light);
 }
 
 .login_button:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
 }
 
 .register_button {
   background: var(--secondary-color);
   color: var(--text-light);
   border: 1px solid var(--secondary-color);
+  box-shadow: 0 4px 15px rgba(112, 195, 242, 0.3);
 }
 
 .register_button:hover {
   background: var(--accent-color);
   border-color: var(--accent-color);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(112, 195, 242, 0.4);
+  box-shadow: 0 6px 20px rgba(112, 195, 242, 0.5);
 }
 
 /* Hero Section */

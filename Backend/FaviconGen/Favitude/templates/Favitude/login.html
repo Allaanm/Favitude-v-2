@@ -38,8 +38,7 @@
 
             <label for="fmail">
                 <p>Email Address</p>
-                <input type="text" name="username" id="fmail" class="fields" placeholder="williamdoe@example.com"
-                    onkeyup="manageBtn()">
+                <input type="text" name="username" id="fmail" class="fields" placeholder="" onkeyup="manageBtn()">
                 <div id="erroremail" class="emsg"></div>
             </label>
 
@@ -56,7 +55,7 @@
                     <label for="checkbox-rect2">Remember me</label>
                 </div>
                 <div class="forgot1">
-                    <a href="" id="forgot">Forgot Password?</a>
+                    <a href="{% url 'password_reset' %}" id="forgot">Forgot Password?</a>
                 </div>
             </div>
 
