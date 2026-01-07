@@ -66,7 +66,8 @@ def signup_page(request):
       else:
           user = User.objects.create_user(username=username, email=email, password=password)
           user.save()
-          login(request, user)
+          # Specify the backend since we have multiple configured
+          login(request, user, backend='django.contrib.auth.backends.ModelBackend')
           return redirect('Hill:home_page')
           
   return render(request, 'Favitude/signup.html')  
