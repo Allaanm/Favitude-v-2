@@ -10,12 +10,16 @@
 {% block content %}
 <div class="signup-page-wrapper">
     <div class="content">
+        {% load socialaccount %}
         <div class="signup_options">
             <h5>Sign up with</h5>
             <div class="signup_icons">
-                <img src="{% static 'images/images-signup/Facebook.png' %}" alt="Facebook">
-                <img src="{% static 'images/images-signup/Google.png' %}" alt="Google">
-                <img src="{% static 'images/images-signup/Microsoft.png' %}" alt="Microsoft">
+                <a href="{% provider_login_url 'facebook' method='oauth2' %}"><img
+                        src="{% static 'images/images-signup/Facebook.png' %}" alt="Facebook"></a>
+                <a href="{% provider_login_url 'google' %}"><img src="{% static 'images/images-signup/Google.png' %}"
+                        alt="Google"></a>
+                <a href="{% provider_login_url 'microsoft' %}"><img
+                        src="{% static 'images/images-signup/Microsoft.png' %}" alt="Microsoft"></a>
             </div>
         </div>
 
@@ -33,15 +37,14 @@
 
             <div>
                 <label for="fname">Full Name</label>
-                <input class="fields" type="text" name="username" placeholder="" id="fname"
-                    pattern="^[a-zA-Z\s]+" onkeyup="manageBtn()">
+                <input class="fields" type="text" name="username" placeholder="" id="fname" pattern="^[a-zA-Z\s]+"
+                    onkeyup="manageBtn()">
                 <div id="errname" class="emsg"></div>
             </div>
 
             <div>
                 <label for="femail">Email</label>
-                <input class="fields" type="email" name="email" id="femail" placeholder=""
-                    onkeyup="manageBtn()">
+                <input class="fields" type="email" name="email" id="femail" placeholder="" onkeyup="manageBtn()">
                 <div id="erremail" class="emsg"></div>
             </div>
 

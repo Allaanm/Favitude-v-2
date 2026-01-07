@@ -10,11 +10,15 @@
 {% block content %}
 <div class="login-page-wrapper">
     <div id="div1">
+        {% load socialaccount %}
         <p id="p1">Sign in with</p>
         <div id="div1a">
-            <a href=""><img src="{% static 'images/images-login/facebook.png' %}" alt="Facebook"></a>
-            <a href=""><img src="{% static 'images/images-login/google.png' %}" alt="Google"></a>
-            <a href=""><img src="{% static 'images/images-login/microsoft.png' %}" alt="Microsoft"></a>
+            <a href="{% provider_login_url 'facebook' method='oauth2' %}"><img
+                    src="{% static 'images/images-login/facebook.png' %}" alt="Facebook"></a>
+            <a href="{% provider_login_url 'google' %}"><img src="{% static 'images/images-login/google.png' %}"
+                    alt="Google"></a>
+            <a href="{% provider_login_url 'microsoft' %}"><img src="{% static 'images/images-login/microsoft.png' %}"
+                    alt="Microsoft"></a>
         </div>
 
         <div id="div1b">

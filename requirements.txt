@@ -9,3 +9,5 @@ djangorestframework-simplejwt
 gunicorn
 whitenoise
 dj-database-url
+django-allauth
+cryptography
