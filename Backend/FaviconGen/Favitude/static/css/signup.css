@@ -111,9 +111,7 @@ label {
 }
 
 /* Styles for other inputs to match */
-#pass {
-    /* Optional icon for pass if consistent with login */
-}
+
 
 .fields:focus {
     outline: none;
